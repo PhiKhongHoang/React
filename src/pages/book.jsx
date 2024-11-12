@@ -1,8 +1,8 @@
 
-const ProductPage = () => {
+const BookPage = () => {
     return (
         <div>products page</div>
     )
 }
 
-export default ProductPage;
+export default BookPage;
