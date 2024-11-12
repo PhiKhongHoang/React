@@ -20,7 +20,7 @@ const App = () => {
     setTodoList([...todoList, newTodo])
   }
 
-  const randomIntFromInterval = (min, max) => { // min and max included 
+  const randomIntFromInterval = (min, max) => { // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 
