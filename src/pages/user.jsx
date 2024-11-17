@@ -11,9 +11,10 @@ const UserPage = () => {
     const [total, setTotal] = useState(0)
 
     // empty array => run once 
+    // not empty => next value  !== prev value
     useEffect(() => {
         loadUser();
-    }, []);
+    }, [current, pageSize]); // [current] #87 5:43
 
 
     const loadUser = async () => {
@@ -26,6 +27,9 @@ const UserPage = () => {
         }
         setDataUser(res.data.result)
     }
+
+    console.log(">>> check current: ", current)
+    console.log(">>> check pageSize: ", pageSize)
 
     return (
         <div>
