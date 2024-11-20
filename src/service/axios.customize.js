@@ -6,16 +6,22 @@ const instance = axios.create({
 });
 
 // Alter defaults after instance has been created
-//   instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
+// instance.defaults.headers.common['Authorization'] = AUTH_TOKEN;
 
+//gán token vào header với interceptor
 // Add a request interceptor
 instance.interceptors.request.use(function (config) {
+    if (typeof window !== "undefined" && window && window.localStorage && window.localStorage.getItem('access_token')) {
+        config.headers.Authorization = 'Bearer ' + window.localStorage.getItem('access_token');
+    }
     // Do something before request is sent
     return config;
 }, function (error) {
     // Do something with request error
     return Promise.reject(error);
 });
+
+
 
 // Add a response interceptor
 instance.interceptors.response.use(function (response) {

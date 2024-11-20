@@ -28,9 +28,6 @@ const UserPage = () => {
         setDataUser(res.data.result)
     }
 
-    console.log(">>> check current: ", current)
-    console.log(">>> check pageSize: ", pageSize)
-
     return (
         <div>
             <div style={{ padding: "20px" }}>
